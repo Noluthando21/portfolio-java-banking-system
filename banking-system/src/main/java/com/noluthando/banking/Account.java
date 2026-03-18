@@ -31,4 +31,12 @@ public class Account {
 
         balance -= amount;
     }
+    public void transfer(Account target, double amount) {
+        if (target == null) {
+            throw new IllegalArgumentException("Target account cannot be null");
+        }
+
+        this.withdraw(amount);
+        target.deposit(amount);
+    }
 }

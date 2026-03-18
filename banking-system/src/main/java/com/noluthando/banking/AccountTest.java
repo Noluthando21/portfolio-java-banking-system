@@ -29,4 +29,14 @@ public class AccountTest {
             acc.withdraw(200);
         });
     }
+    @Test
+    void transferShouldMoveMoneyBetweenAccounts() {
+        Account acc1 = new Account("Thando", 100);
+        Account acc2 = new Account("Alex", 50);
+
+        acc1.transfer(acc2, 40);
+
+        assertEquals(60, acc1.getBalance());
+        assertEquals(90, acc2.getBalance());
+    }
 }
