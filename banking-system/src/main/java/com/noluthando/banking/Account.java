@@ -2,10 +2,16 @@ package com.noluthando.banking;
 
 public class Account {
 
+    private String owner;
     private double balance;
 
-    public Account(String ignoredOwner, double balance) {
+    public Account(String owner, double balance) {
+        this.owner = owner;
         this.balance = balance;
+    }
+
+    public String getOwner() {
+        return owner;
     }
 
     public double getBalance() {
@@ -20,7 +26,6 @@ public class Account {
     }
 
     public void withdraw(double amount) {
-
         if (amount <= 0) {
             throw new IllegalArgumentException("Amount must be positive");
         }
@@ -31,6 +36,7 @@ public class Account {
 
         balance -= amount;
     }
+
     public void transfer(Account target, double amount) {
         if (target == null) {
             throw new IllegalArgumentException("Target account cannot be null");
